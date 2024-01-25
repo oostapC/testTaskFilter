@@ -1,0 +1,25 @@
+<div class="main">
+  <div class="select">
+    <mat-select (selectionChange)="onSelectChange($event)">
+      @for (food of foods; track food) {
+      <mat-option [value]="food.value">{{ food.value }}</mat-option>
+      }
+      <div class="buttons">
+        <button
+          class="saveBtn"
+          [ngClass]="{ disabled: isSaveButtonDisabled }"
+          (click)="onSelectionSave(foodSelect)"
+          [disabled]="isSaveButtonDisabled"
+        >
+          Save
+        </button>
+        <button class="resetBtn" (click)="resetSelect(foodSelect)">
+          Reset
+        </button>
+      </div>
+    </mat-select>
+  </div>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Filter" [(ngModel)]="filterValue" />
+  </mat-form-field>
+</div>
