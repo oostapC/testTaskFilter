@@ -1,5 +1,5 @@
 <div class="main">
-  <div class="select">
+    <mat-form-field >
     <mat-select (selectionChange)="onSelectChange($event)" placeholder="Select food">
       @for (food of foods; track food) {
       <mat-option [value]="food.value">{{ food.value }}</mat-option>
@@ -18,7 +18,8 @@
         </button>
       </div>
     </mat-select>
-  </div>
+  </mat-form-field>
+
   <mat-form-field class="example-full-width">
     <input matInput placeholder="Filter" [(ngModel)]="filterValue" />
   </mat-form-field>
