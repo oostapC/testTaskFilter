@@ -1,20 +1,29 @@
 <div class="main">
     <mat-form-field >
-    <mat-select (selectionChange)="onSelectChange($event)" placeholder="Select food">
+      <img style="position: absolute;right: 0; top: 23px;"[class]="" src="../../../assets/img/Path.svg" 
+      [class.arrow-down]="isDropdownOpen"
+      [class.arrow-up]="!isDropdownOpen"
+      alt="">
+    <mat-select (selectionChange)="onSelectChange($event)" (openedChange)="toggleDropdown()" placeholder="סטטוס בקשה" >
+     
       @for (food of foods; track food) {
-      <mat-option [value]="food.value">{{ food.value }}</mat-option>
+      <mat-option style="color: blue;" [value]="food.value">{{ food.value }}</mat-option>
       }
+      <div class="outline">
+        <div class="line"></div>
+        </div>
       <div class="buttons">
+      
         <button
           class="saveBtn"
           [ngClass]="{ disabled: isSaveButtonDisabled }"
           (click)="onSelectionSave(foodSelect)"
           [disabled]="isSaveButtonDisabled"
         >
-          Save
+        הצגת בקשות
         </button>
         <button class="resetBtn" (click)="resetSelect(foodSelect)">
-          Reset
+          ניקוי בחירה
         </button>
       </div>
     </mat-select>

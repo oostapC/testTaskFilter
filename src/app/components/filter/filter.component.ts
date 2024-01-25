@@ -20,10 +20,20 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 })
 export class FilterComponent {
   @ViewChild(MatSelect) foodSelect!: MatSelect;
+ 
 
-  foods = [{ value: 'Pizza' }, { value: 'Burger' }, { value: 'Sushi' }];
+  foods = [{ value: 'בקשה התקבלה' }, { value: 'הועבר לטיפול' }, { value: 'הופקה התחייבות' }];
   isSaveButtonDisabled = true;
   filterValue: string | null = null;
+
+
+  isDropdownOpen = false;
+
+  
+
+  toggleDropdown(): void {
+    this.isDropdownOpen = !this.isDropdownOpen;
+  }
   onSelectionSave(select: MatSelect): void {
     this.filterValue = select.value;
     select.close();

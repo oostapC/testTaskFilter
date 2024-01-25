@@ -5,12 +5,14 @@
 }
 
 .buttons {
-  border-top: 1px solid gray;
   display: flex;
   flex-direction: column;
   padding: 1rem;
 }
-
+mat-select{
+  color: blue;
+  font-size: 16px;
+}
 mat-form-field-underline {
   display: none;
 }
@@ -20,29 +22,62 @@ mat-form-field-underline {
   border-color: transparent;
   text-decoration: underline;
   cursor: pointer;
+  color:  #6B6E77;
+  margin-top: 20px;
+  font-size:16px;
 }
 .saveBtn {
-  background-color: blue;
+  background-color: #14008E;
   width: 100%;
   height: 2.5rem;
-  color: white;
+  color: #FFFFFF;
   border-radius: 20px;
   border: none;
   cursor: pointer;
+  font-size:16px;
 }
 .disabled {
   background-color: gray;
 }
 
-::ng-deep{
-  .mat-mdc-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-mdc-text-field-wrapper {
+::ng-deep {
+  .mat-mdc-form-field-type-mat-select:not(.mat-form-field-disabled)
+    .mat-mdc-text-field-wrapper {
     cursor: pointer;
     border-radius: 30px;
-    border: none;
+    border: 1px solid #BDBFD5;
   }
-  .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
-    border-bottom-color: transparent!important;
+  .mdc-text-field--filled:not(.mdc-text-field--disabled)
+    .mdc-line-ripple::before {
+    border-bottom-color: transparent !important;
+  }
+  .cdk-overlay-pane:not(.mat-mdc-select-panel-above) div.mat-mdc-select-panel {
+    padding: 5px;
+    border-color: #BDBFD5;
+    border-radius: 6px;
+    box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.10);
+  }
+  .mat-mdc-select-arrow svg {
+    display: none;
+}
+}
+.outline{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.line{
+  width: 80%;
+  background-color: #E4E4E4;
+  height: 1px;
 }
 
+.arrow-down {
+  transform: rotate(0deg);
+  transition: transform 0.3s;
 }
 
+.arrow-up {
+  transform: rotate(180deg);
+  transition: transform 0.3s;
+}
